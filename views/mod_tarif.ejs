@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/js/custom.js"></script>
+</head>
+<body>
+	<div>
+		<a href="/">На главную</a>
+	</div>
+
+	<h2><%= title %></h2>
+
+	<form action="/mod-tarif" method="POST" name="change-tarif">		
+		Формула расчёта<br>
+		<input type="text" name="formula" value="<%= calc_func %>" style="width: 400px;">		
+		<input type="submit" name="submit" value="Применить">
+	</form>
+
+	<h3>Доступные переменные:</h3>
+	<ul>
+		<% for (var key in calc_operands) { %>
+			<li><%= key %> - <%= calc_operands[key] %></li>	
+		<% } %>	
+	</ul>
+
+	<div class="result"></div>
+</body>
+</html>

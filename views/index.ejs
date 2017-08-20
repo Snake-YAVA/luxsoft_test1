@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/js/custom.js"></script>
+</head>
+<body>
+	<div>
+		<a href="/mod-tarif">Редактировать тарифы</a>
+	</div>
+
+	<h2><%= title %></h2>	
+
+	<form action="/calculate" method="POST" name="calc-cost">
+		<% for (var key in calc_operands) { %>
+			<%= calc_operands[key] %><input type="number" name="<%= key %>" value="1" min="1" step="1"><br>	
+		<% } %>
+		<input type="submit" name="submit" value="Рассчитать">
+	</form>
+	
+	<div class="result"></div>
+</body>
+</html>
